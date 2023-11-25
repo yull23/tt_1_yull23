@@ -1,4 +1,5 @@
 import { ValidationPipe } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import * as morgan from 'morgan';
 import { AppModule } from './app.module';
@@ -19,7 +20,9 @@ async function bootstrap() {
       transform: true,
     }),
   );
+  const configService = app.get(ConfigService);
 
-  await app.listen(3000);
+  // console.log('Application running on: ' + (await app.getUrl()));
+  await app.listen(configService.get('APP_PORT'));
 }
 bootstrap();
