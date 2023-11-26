@@ -11,7 +11,7 @@ async function bootstrap() {
   // app.use(morgan('dev'));
   app.use(morgan('dev'));
   app.enableCors(CORS);
-  console.log(CORS);
+  // console.log(CORS);
 
   app.useGlobalPipes(
     new ValidationPipe({
@@ -21,6 +21,7 @@ async function bootstrap() {
     }),
   );
   const configService = app.get(ConfigService);
+  console.log(__dirname);
 
   // console.log('Application running on: ' + (await app.getUrl()));
   await app.listen(configService.get('APP_PORT'));
