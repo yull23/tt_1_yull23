@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+} from '@nestjs/common';
 import { BlanksService } from './blanks.service';
 import { CreateBlankDto } from './dto/create-blank.dto';
 import { UpdateBlankDto } from './dto/update-blank.dto';
@@ -15,6 +23,11 @@ export class BlanksController {
   @Get()
   findAll() {
     return this.blanksService.findAll();
+  }
+  @Get('unhandled')
+  async unhandledError() {
+    // Simulando un error no controlado lanzando una excepción
+    throw new Error('¡Esto es un error no controlado!');
   }
 
   @Get(':id')
