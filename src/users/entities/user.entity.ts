@@ -12,7 +12,7 @@ import { IUser } from '../../common/interfaces/user.interface';
 import { Student } from '../../students/entities/student.entity';
 import { Teacher } from '../../teachers/entities/teacher.entity';
 
-@Entity({ name: 'users' })
+@Entity()
 export class User extends BaseEntity implements IUser {
   @Column()
   @IsNotEmpty()
