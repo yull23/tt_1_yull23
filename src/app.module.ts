@@ -6,6 +6,8 @@ import { Blank } from './blanks/entities/blank.entity';
 import { DataSourceConfig } from './config/data.source';
 import { HealthController } from './healt-check/health.controller';
 import { UsersModule } from './users/users.module';
+import { TeachersModule } from './teachers/teachers.module';
+import { StudentsModule } from './students/students.module';
 
 @Module({
   imports: [
@@ -16,6 +18,8 @@ import { UsersModule } from './users/users.module';
     TypeOrmModule.forRoot({ ...DataSourceConfig, entities: [Blank] }),
     BlanksModule,
     UsersModule,
+    TeachersModule,
+    StudentsModule,
     // CacheModule.register({
     //   isGlobal: true,
     //   ttl: 5,
