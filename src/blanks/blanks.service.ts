@@ -23,4 +23,8 @@ export class BlanksService {
   remove(id: number) {
     return `This action removes a #${id} blank`;
   }
+  async getData() {
+    console.log('Fetching data from the database...');
+    return 'Data from the database';
+  }
 }

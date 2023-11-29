@@ -1,6 +1,8 @@
 import { ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
+import * as morgan from 'morgan';
+// import * as morgan from 'morgan';
 import { AppModule } from './app.module';
 import { CORS } from './config/constants';
 import { configureErrorLogging } from './config/loggin-erros.config';
@@ -31,11 +33,7 @@ async function bootstrap() {
   // START: Printing and writing configuration of errors and logs.
   configureNormalLogging(app, configService);
   configureErrorLogging(app, configService);
-  // app.use(
-  //   morgan(
-  //     ':method :url :status :res[content-length] - :response-time ms :date[web] :type',
-  //   ),
-  // );
+  app.use(morgan('dev'));
 
   // END: Printing and writing configuration of errors and logs.
 

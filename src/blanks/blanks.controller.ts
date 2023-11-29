@@ -1,3 +1,4 @@
+import { CacheKey, CacheTTL } from '@nestjs/cache-manager';
 import {
   Body,
   Controller,
@@ -28,6 +29,12 @@ export class BlanksController {
   async unhandledError() {
     // Simulando un error no controlado lanzando una excepción
     throw new Error('¡Esto es un error no controlado!');
+  }
+  @CacheKey('custom_key')
+  @CacheTTL(20)
+  @Get('test')
+  getData() {
+    return this.blanksService.getData();
   }
 
   @Get(':id')

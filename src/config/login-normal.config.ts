@@ -16,7 +16,7 @@ export function configureNormalLogging(
 
   // Logs normales
   if (configService.get('LOG_REQ_TO_FILE')) {
-    const logFilePath = path.join(rootPath, 'src', 'records', 'access.log');
+    const logFilePath = path.join(rootPath, 'src', 'records', 'info.log');
     const logStream = fs.createWriteStream(logFilePath, { flags: 'a' });
     app.use(
       morgan(
